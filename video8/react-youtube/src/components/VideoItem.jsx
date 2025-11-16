@@ -1,6 +1,7 @@
 import styles from './VideoItem.module.scss';
 
 const VideoItem = ({ title, description,uploadDate, duration }) => {
+    console.log('  - VideoItem');
     let seconds = duration % 60;
     if (seconds < 10) {
         seconds = '0' + seconds;

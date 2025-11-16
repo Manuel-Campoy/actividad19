@@ -2,7 +2,9 @@ import VideoItem from './components/VideoItem';
 import VideoList from './components/VideoList';
 import styles from './App.module.css';
 
-const App = () => (
+const App = () => {
+    console.log('Render App');
+    return (
     <div className={styles.container}>
     <VideoList title='Curso de React'>
         <VideoItem 
@@ -29,5 +31,5 @@ const App = () => (
     <VideoList title='Curso de Next JS'></VideoList>
     </div>
 );
-
+}
 export default App
