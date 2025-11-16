@@ -1,35 +1,44 @@
-import VideoItem from './components/VideoItem';
-import VideoList from './components/VideoList';
-import styles from './App.module.css';
+import { useState } from "react";
+
+const getInitialLikes = () => { 
+    console.log('getInitialLikes')
+    return 12
+}
+
+const Likes = () => {
+    console.log('Render Likes')
+    
+    const [likes, setLikes] = useState(() => getInitialLikes())
+
+    return <Button onClick={() => setLikes(likes + 1)}>{likes} likes</Button>
+}
+
+/* const Likes = () => {
+    console.log('Render Likes')
+
+    const [likes, setLikes] = useState({ val:0 })
+
+    return (
+        <Button
+            onClick={() => {
+                const newLikes = { ...likes }  // { val: likes.val } - otra forma de realizar la copia
+                newLikes.val++
+                setLikes(newLikes)
+            }}
+        >
+            {likes.val} likes
+        </Button>
+    )
+} */
+
+const Button = ({onClick, children}) => {
+    console.log('Render Button')
+    return <button onClick={onClick}>{children}</button>
+}
 
 const App = () => {
-    console.log('Render App');
-    return (
-    <div className={styles.container}>
-    <VideoList title='Curso de React'>
-        <VideoItem 
-        title='Componentes'
-        duration={2760} 
-        uploadDate={new Date(2022, 1, 25)} 
-        description='Componentes en React'
-        ></VideoItem>
-        <VideoItem 
-        title='useState' 
-        duration={3145} 
-        uploadDate={new Date(2022, 2, 3)} 
-        description='Cómo utilizar estados en React'
-        ></VideoItem>
-    </VideoList>
-    <VideoList title='Curso de Node'>
-        <VideoItem 
-        title='Intro a Node JS'
-        duration={2760} 
-        uploadDate={new Date(2022, 1, 25)} 
-        description='Introducción al backend con Node'
-        ></VideoItem>
-    </VideoList>
-    <VideoList title='Curso de Next JS'></VideoList>
-    </div>
-);
+    console.log('Render App')
+    return <Likes />;
 }
+
 export default App
