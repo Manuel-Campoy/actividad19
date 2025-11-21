@@ -1,16 +1,19 @@
-import ReactDOM from 'react-dom';
+import ReactDOM from 'react-dom/client'; 
 import './index.css';
+import React from 'react'; 
 
-const Title = props => {
-    console.log(props);
-    return <h3 className='title'>{props.children}</h3>
+const MyTitle = props => { 
+  console.log(props);
+  return <h3 className='title'>{props.children}</h3>
 };
 
 const app = (
-    <div>
-        <title>Desarrollo Útil</title>
-    </div>
+  <div>
+    <MyTitle>Desarrollo Útil</MyTitle> 
+  </div>
 );
+
 const container = document.getElementById('root');
 
-ReactDOM.render(app, container);
+const root = ReactDOM.createRoot(container);
+root.render(app);

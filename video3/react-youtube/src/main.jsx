@@ -1,7 +1,13 @@
-import ReactDOM from "react-dom";
+import ReactDOM from "react-dom/client"; 
 import "./index.css";
+import React from "react"; 
 
-const app = <h1>Desarrollo Útil</h1>;
 const container = document.getElementById("root");
 
-ReactDOM.render(app, container);
+const root = ReactDOM.createRoot(container);
+
+root.render(
+  <React.StrictMode>
+    <h1>Desarrollo Útil</h1> 
+  </React.StrictMode>
+);
